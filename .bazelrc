@@ -1,4 +1,7 @@
 
+bazel build //...
+INFO: Streaming build results to: https://app.buildbuddy.io/invocation/7bedd84e-525e-4b93-a5f5-53517d57752b
+...
 --build_metadata=COMMIT_SHA=$(git rev-parse HEAD)
 
 build --build_metadata=REPO_URL=https://github.com/StevenZhy/wordclock.git
@@ -27,6 +30,16 @@ build:remote --host_javabase=@buildbuddy_toolchain//:javabase_jdk8
 build:remote --java_toolchain=@buildbuddy_toolchain//:toolchain_jdk8
 build:remote --host_java_toolchain=@buildbuddy_toolchain//:toolchain_jdk8
 build:remote --define=EXECUTOR=remote
+
+build:remote --remote_cache=grpcs://remote.buildbuddy.io
+build:remote --remote_executor=grpcs://remote.buildbuddy.io
+build:remote --remote_upload_local_results
+build:remote --host_platform=@buildbuddy_toolchain//:platform
+build:remote --platforms=@buildbuddy_toolchain//:platform
+build:remote --crosstool_top=@buildbuddy_toolchain//:toolchain
+build:remote --jobs=100
+
+build:ci --config=remote
 
 build:ci --build_metadata=ROLE=CI
 build:ci --bes_results_url=https://app.buildbuddy.io/invocation/
@@ -166,3 +179,7 @@ build --build_tag_filters=-docker
 # You can create your own by copying and editing the template-user.bazelrc template:
 # cp template-user.bazelrc user.bazelrc
 try-import %workspace%/user.bazelrc
+
+bazel build //...
+INFO: Streaming build results to: https://app.buildbuddy.io/invocation/7bedd84e-525e-4b93-a5f5-53517d57752b
+...
