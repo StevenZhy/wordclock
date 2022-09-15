@@ -11,4 +11,4 @@ build --bes_backend=grpcs://remote.buildbuddy.io
 build --remote_cache=grpcs://remote.buildbuddy.io
 build --noremote_upload_local_results # Uploads logs & artifacts without writing to cache
 build --remote_timeout=3600
-build --remote_header=x-buildbuddy-api-key=gXnZ4bKMhgivJ7ET0gdE
+build --remote_header=x-buildbuddy-api-key=R42KyViLYF0kd80ikvnW
