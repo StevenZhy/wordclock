@@ -1,6 +1,3 @@
-
-bazel build //...
-
 --build_metadata=COMMIT_SHA=$(git rev-parse HEAD)
 
 build --build_metadata=REPO_URL=https://github.com/StevenZhy/wordclock.git
@@ -179,7 +176,3 @@ build --build_tag_filters=-docker
 # You can create your own by copying and editing the template-user.bazelrc template:
 # cp template-user.bazelrc user.bazelrc
 try-import %workspace%/user.bazelrc
-
-
-INFO: Streaming build results to: https://app.buildbuddy.io/invocation/7bedd84e-525e-4b93-a5f5-53517d57752b
-...
