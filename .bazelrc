@@ -1,7 +1,6 @@
 
 bazel build //...
-INFO: Streaming build results to: https://app.buildbuddy.io/invocation/7bedd84e-525e-4b93-a5f5-53517d57752b
-...
+
 --build_metadata=COMMIT_SHA=$(git rev-parse HEAD)
 
 build --build_metadata=REPO_URL=https://github.com/StevenZhy/wordclock.git
@@ -15,9 +14,9 @@ build --workspace_status_command=$(pwd)/workspace_status.sh
 build --bes_results_url=https://app.buildbuddy.io/invocation/
 build --bes_backend=grpcs://remote.buildbuddy.io
 build --remote_cache=grpcs://remote.buildbuddy.io
-build --noremote_upload_local_results # Uploads logs & artifacts without writing to cache
 build --remote_timeout=3600
-build --remote_header=x-buildbuddy-api-key=gXnZ4bKMhgivJ7ET0gdE
+build --remote_executor=grpcs://remote.buildbuddy.io
+build --remote_header=x-buildbuddy-api-key=R42KyViLYF0kd80ikvnW
 
 
 build:remote --remote_executor=grpcs://remote.buildbuddy.io
@@ -181,6 +180,6 @@ build --build_tag_filters=-docker
 # cp template-user.bazelrc user.bazelrc
 try-import %workspace%/user.bazelrc
 
-bazel build //...
+
 INFO: Streaming build results to: https://app.buildbuddy.io/invocation/7bedd84e-525e-4b93-a5f5-53517d57752b
 ...
