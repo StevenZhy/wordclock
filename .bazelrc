@@ -1,7 +1,6 @@
-build --bes_results_url=https://app.buildbuddy.io/invocation/
-build --bes_backend=grpcs://remote.buildbuddy.io
-build --remote_cache=grpcs://remote.buildbuddy.io
+build --bes_results_url=http://localhost:8080/invocation/
+build --bes_backend=grpc://localhost:1985
+build --remote_cache=grpc://localhost:1985
 build --noremote_upload_local_results # Uploads logs & artifacts without writing to cache
 build --remote_timeout=3600
-build --remote_executor=grpcs://remote.buildbuddy.io
-build --remote_header=x-buildbuddy-api-key=IeS87RjDdmlQ4vZOsRmy
+build --remote_executor=grpc://localhost:1985
